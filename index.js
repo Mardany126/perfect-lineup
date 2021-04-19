@@ -33,30 +33,49 @@ const validateLineup = (lineup) => {
   let allPositions = lineup.map((player) => {
     return player.position
   })
-  const countPosition = (positions, searchPos) => {
+  const countItem = (items, searchTerm) => {
     let count = 0
-    
-    for (let i = 0; i < positions.length; i++) {
-      if (positions[i] === searchPos) {
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i] === searchTerm) {
         count++
       }
     }
     return count
   }
-  let countP = countPosition(allPositions, "P")
-  let countC = countPosition(allPositions, "C")
-  let count1B = countPosition(allPositions, "1B")
-  let count2B = countPosition(allPositions, "2B")
-  let count3B = countPosition(allPositions, "3B")
-  let countSS = countPosition(allPositions, "SS")
-  let countOF = countPosition(allPositions, "OF")
+  let countP = countItem(allPositions, "P")
+  let countC = countItem(allPositions, "C")
+  let count1B = countItem(allPositions, "1B")
+  let count2B = countItem(allPositions, "2B")
+  let count3B = countItem(allPositions, "3B")
+  let countSS = countItem(allPositions, "SS")
+  let countOF = countItem(allPositions, "OF")
 
-// = is
-// == is equal
-// === is exactly equal
+  // = is
+  // == is equal
+  // === is exactly equal
 
-  if(countP !== 1 || countC !== 1 || count1B !== 1 || count2B !== 1 || count3B !== 1 || countSS !== 1 || countOF !== 3){
-return false
+  if (
+    countP !== 1 ||
+    countC !== 1 ||
+    count1B !== 1 ||
+    count2B !== 1 ||
+    count3B !== 1 ||
+    countSS !== 1 ||
+    countOF !== 3
+  ) {
+    return false
+  }
+
+  let allTeamIds = lineup.map((player) => {
+    return player.teamId
+  })
+  for (let i = 0; i < allTeamIds.length; i++) {
+    let idToSearchFor = allTeamIds[i]
+    let countOfId = countItem(allTeamIds, idToSearchFor)
+    if (countOfId > 1) {
+      return false
+    }
   }
 
   //   console.log(salarySum)
