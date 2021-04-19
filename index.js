@@ -73,11 +73,21 @@ const validateLineup = (lineup) => {
   for (let i = 0; i < allTeamIds.length; i++) {
     let idToSearchFor = allTeamIds[i]
     let countOfId = countItem(allTeamIds, idToSearchFor)
-    if (countOfId > 1) {
+    if (countOfId > 2) {
       return false
     }
   }
-
+  let allGameIds = lineup.map((player) => {
+    return player.gameId
+  })
+  for (let i = 0; i < allGameIds.length; i++) {
+    let idToSearchFor = allGameIds[i]
+    let countOfId = countItem(allGameIds, idToSearchFor)
+    if (countOfId > 3) {
+      return false
+    }
+  }
+  return true
   //   console.log(salarySum)
 }
 
