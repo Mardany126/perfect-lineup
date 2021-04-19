@@ -27,6 +27,17 @@ const validateLineup = (lineup) => {
     return false
   }
 
+  //   if (lineup.length !== 9) {
+  //     return false
+  //   }
+  let allPositions = lineup.map((player) => {
+    return player.position
+  })
+  const countPosition = (positions, searchPos) => {
+    let count = 0
+    for (let i = 0; i < positions.length; i++) {}
+    return count
+  }
   //   console.log(salarySum)
 }
 
