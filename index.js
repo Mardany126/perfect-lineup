@@ -35,9 +35,30 @@ const validateLineup = (lineup) => {
   })
   const countPosition = (positions, searchPos) => {
     let count = 0
-    for (let i = 0; i < positions.length; i++) {}
+    
+    for (let i = 0; i < positions.length; i++) {
+      if (positions[i] === searchPos) {
+        count++
+      }
+    }
     return count
   }
+  let countP = countPosition(allPositions, "P")
+  let countC = countPosition(allPositions, "C")
+  let count1B = countPosition(allPositions, "1B")
+  let count2B = countPosition(allPositions, "2B")
+  let count3B = countPosition(allPositions, "3B")
+  let countSS = countPosition(allPositions, "SS")
+  let countOF = countPosition(allPositions, "OF")
+
+// = is
+// == is equal
+// === is exactly equal
+
+  if(countP !== 1 || countC !== 1 || count1B !== 1 || count2B !== 1 || count3B !== 1 || countSS !== 1 || countOF !== 3){
+return false
+  }
+
   //   console.log(salarySum)
 }
 
