@@ -64,7 +64,7 @@ const validateLineup = (lineup) => {
     }
   }
   return true
-  //   console.log(salarySum)
+
 }
 
 module.exports = validateLineup
