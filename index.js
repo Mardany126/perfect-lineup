@@ -1,21 +1,3 @@
-// salaryTotal = lineup.map()
-//     (lineup) => lineup.salary.reduce
-//     if salaryTotal > 45000 {
-
-//     } return false
-
-// const playerAmount = (lineup) => {
-
-//     let teamIds = lineup.map(teamId => teamId.teamIds)
-
-//     let uniqueIds = []
-//     teamIds.forEach(teamId => {
-//         if (!uniqueIds.includes(teamId)) {
-//             uniqueIds.push(studentId)
-//         }
-//     })
-// }
-
 const validateLineup = (lineup) => {
   let salarySum = 0
 
@@ -27,9 +9,6 @@ const validateLineup = (lineup) => {
     return false
   }
 
-  //   if (lineup.length !== 9) {
-  //     return false
-  //   }
   let allPositions = lineup.map((player) => {
     return player.position
   })
@@ -51,9 +30,6 @@ const validateLineup = (lineup) => {
   let countSS = countItem(allPositions, "SS")
   let countOF = countItem(allPositions, "OF")
 
-  // = is
-  // == is equal
-  // === is exactly equal
 
   if (
     countP !== 1 ||
